@@ -1,0 +1,2 @@
+class AcceptanceAppManager::GitHub
+end

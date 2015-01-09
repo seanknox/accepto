@@ -1,0 +1,3 @@
+class AcceptanceAppManager::Heroku
+
+end
