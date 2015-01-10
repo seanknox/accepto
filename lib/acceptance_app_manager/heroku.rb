@@ -2,14 +2,7 @@
 module AcceptanceAppManager
   Heroku = Struct.new(:options) do
     def create
-      client.app_setup.create(
-        source_blob: {
-          url: tarball_url
-        },
-        app: {
-          name: app_name
-        }
-      )
+      client.app_setup.create(data)
     end
 
     def destroy
@@ -17,12 +10,21 @@ module AcceptanceAppManager
     end
 
     def client
-      @client ||= PlatformAPI.connect(
-        api_key
-      )
+      @client ||= PlatformAPI.connect(api_key)
     end
 
     private
+
+    def data
+      {
+        source_blob: {
+          url: tarball_url
+        },
+        app: {
+          name: app_name
+        }
+      }
+    end
 
     def api_key
       ENV['HEROKU_API_KEY']

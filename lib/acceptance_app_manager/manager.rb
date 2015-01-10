@@ -16,6 +16,7 @@ module AcceptanceAppManager
     end
 
     def update
+      # TODO: Delete exisiting app and recreate it
     end
 
     def destroy
@@ -37,7 +38,7 @@ module AcceptanceAppManager
     end
 
     def app_url
-      @heroku.client.app_setup.info(app_name).fetch('web_url')
+      @heroku.client.app.info(app_name).fetch('web_url')
     end
 
     def pr_number
