@@ -11,7 +11,7 @@ describe AcceptanceAppManager::GithubTarball do
   it 'create an archive link for the Github tarball' do
     expect_any_instance_of(Octokit::Client).to receive(:archive_link).with(
       project,
-      branch_name
+      ref: branch_name
     )
 
     described_class.call(branch_name: branch_name)

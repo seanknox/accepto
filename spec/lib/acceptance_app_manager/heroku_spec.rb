@@ -1,5 +1,4 @@
 require 'spec_helper'
-require 'pry'
 
 describe AcceptanceAppManager::Heroku do
   let(:app_name) { 'fake-app-name' }
@@ -17,15 +16,14 @@ describe AcceptanceAppManager::Heroku do
     end
 
     it 'creates an app on Heroku' do
-      expect_any_instance_of(PlatformAPI::Client).to receive(:post).with(
-        'https://api.heroku.com/app-setups',
-        data: {
-          source_blob: {
-            url: tarball_url
-          },
-          app: {
-            name: app_name
-          }
+      expect_any_instance_of(PlatformAPI::AppSetup).to receive(
+        :create
+      ).with(
+        source_blob: {
+          url: tarball_url
+        },
+        app: {
+          name: app_name
         }
       )
 
