@@ -11,7 +11,7 @@ module AcceptanceAppManager
     end
 
     def create
-      @heroku.create(app_name, tarball_url)
+      @heroku.create
       comment_pr("Test URL: #{app_url}")
     end
 
@@ -26,7 +26,7 @@ module AcceptanceAppManager
     private
 
     def app_name
-      "#{ENV['APP_PREFIX']}-PR-#{pr_number}".downcase
+      "#{ENV['HEROKU_APP_PREFIX']}-PR-#{pr_number}".downcase
     end
 
     def comment_pr(comment)
@@ -37,7 +37,7 @@ module AcceptanceAppManager
     end
 
     def app_url
-      @heroku.client.app.info(app_name).fetch(:web_url)
+      @heroku.client.app_setup.info(app_name).fetch('web_url')
     end
 
     def pr_number

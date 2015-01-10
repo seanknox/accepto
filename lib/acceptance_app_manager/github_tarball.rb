@@ -5,7 +5,7 @@ module AcceptanceAppManager
     end
 
     def call
-      octokit.archive_link(ENV['GITHUB_PROJECT'], branch_name)
+      octokit.archive_link(ENV['GITHUB_PROJECT'], :ref => branch_name)
     end
 
     private
