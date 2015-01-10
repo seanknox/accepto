@@ -1,7 +1,5 @@
 post '/hooks' do
   params = JSON.parse(request.env['rack.input'].read)
-  logger.info '*** PARAMS ***'
-  logger.info params
-  AcceptanceAppManager::PullRequest.new.async.perform(params)
+  AcceptanceAppManager::PullRequest.new(params)
   'Got it, thanks!'
 end

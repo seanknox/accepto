@@ -14,4 +14,3 @@ require_relative 'acceptance_app_manager/github_tarball'
 require_relative 'acceptance_app_manager/heroku'
 require_relative 'acceptance_app_manager/pull_request'
 require_relative 'acceptance_app_manager/web'
-
