@@ -5,16 +5,20 @@ module AcceptanceAppManager
     end
 
     def call
-      octokit.add_comment(ENV['GITHUB_PROJECT'], pr_number, comment)
+      octokit_client.add_comment(github_project, pr_number, comment)
     end
 
     private
 
-    def octokit
+    def octokit_client
       @octokit_client ||= Octokit::Client.new(
-        login: ENV['GITHUB_USERNAME'],
-        password: ENV['GITHUB_PERSONAL_TOKEN']
+        login: ENV.fetch('GITHUB_USERNAME'),
+        password: ENV.fetch('GITHUB_PERSONAL_TOKEN')
       )
+    end
+
+    def github_project
+      ENV.fetch('GITHUB_PROJECT')
     end
 
     def pr_number

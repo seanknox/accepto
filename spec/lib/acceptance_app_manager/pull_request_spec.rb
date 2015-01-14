@@ -1,6 +1,8 @@
 require 'spec_helper'
 
 describe AcceptanceAppManager::PullRequest do
+  let(:title) { 'Test me' }
+
   describe '#call' do
     let(:manager) { instance_double(AcceptanceAppManager::Manager) }
     let(:params) do
@@ -18,7 +20,6 @@ describe AcceptanceAppManager::PullRequest do
 
     context 'action == synchronize' do
       let(:action) { 'synchronize' }
-      let(:title) { 'Test me' }
 
       before do
         allow(AcceptanceAppManager::Manager).to receive(
@@ -27,14 +28,13 @@ describe AcceptanceAppManager::PullRequest do
       end
 
       it 'calls Manager.update' do
-        allow(manager).to receive(:update)
+        expect(manager).to receive(:update)
         described_class.call(params)
       end
     end
 
-    context 'action == close' do
-      let(:action) { 'close' }
-      let(:title) { 'Test me' }
+    context 'action == closed' do
+      let(:action) { 'closed' }
 
       before do
         allow(AcceptanceAppManager::Manager).to receive(
@@ -42,15 +42,14 @@ describe AcceptanceAppManager::PullRequest do
         ).and_return(manager)
       end
 
-      it 'calls Manager.update' do
-        allow(manager).to receive(:destroy)
+      it 'calls Manager.destroy' do
+        expect(manager).to receive(:destroy)
         described_class.call(params)
       end
     end
 
     context 'action == reopened' do
       let(:action) { 'reopened' }
-      let(:title) { 'Test me' }
 
       before do
         allow(AcceptanceAppManager::Manager).to receive(
@@ -58,15 +57,14 @@ describe AcceptanceAppManager::PullRequest do
         ).and_return(manager)
       end
 
-      it 'calls Manager.update' do
-        allow(manager).to receive(:create)
+      it 'calls Manager.create' do
+        expect(manager).to receive(:create)
         described_class.call(params)
       end
     end
 
     context 'action == opened' do
       let(:action) { 'opened' }
-      let(:title) { 'Test me' }
 
       before do
         allow(AcceptanceAppManager::Manager).to receive(
@@ -74,8 +72,8 @@ describe AcceptanceAppManager::PullRequest do
         ).and_return(manager)
       end
 
-      it 'calls Manager.update' do
-        allow(manager).to receive(:create)
+      it 'calls Manager.create' do
+        expect(manager).to receive(:create)
         described_class.call(params)
       end
     end
@@ -91,7 +89,6 @@ describe AcceptanceAppManager::PullRequest do
 
     context 'action we do not handle' do
       let(:action) { 'unassigned' }
-      let(:title) { 'Test me' }
 
       it 'returns' do
         described_class.call(params)

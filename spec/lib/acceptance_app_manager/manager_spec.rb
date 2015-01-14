@@ -23,9 +23,7 @@ describe AcceptanceAppManager::Manager do
       'HEROKU_APP_PREFIX' => 'my-app'
     )
     allow(AcceptanceAppManager::Heroku).to receive(:new).and_return(heroku)
-    allow(heroku).to receive_message_chain(:client, :app, :info) {
-      { 'web_url' => app_url }
-    }
+    allow(heroku).to receive(:app_url).and_return(app_url)
     allow(AcceptanceAppManager::GithubTarball).to receive(:call).with(
       branch_name: branch_name
     )

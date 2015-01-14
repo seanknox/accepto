@@ -1,3 +1,4 @@
+# Gets the tarball link from Github
 module AcceptanceAppManager
   GithubTarball = Struct.new(:options) do
     def self.call(*args)
@@ -5,16 +6,20 @@ module AcceptanceAppManager
     end
 
     def call
-      octokit.archive_link(ENV['GITHUB_PROJECT'], ref: branch_name)
+      octokit_client.archive_link(github_project, ref: branch_name)
     end
 
     private
 
-    def octokit
+    def octokit_client
       @octokit_client ||= Octokit::Client.new(
-        login: ENV['GITHUB_USERNAME'],
-        password: ENV['GITHUB_PERSONAL_TOKEN']
+        login: ENV.fetch('GITHUB_USERNAME'),
+        password: ENV.fetch('GITHUB_PERSONAL_TOKEN')
       )
+    end
+
+    def github_project
+      ENV.fetch('GITHUB_PROJECT')
     end
 
     def branch_name

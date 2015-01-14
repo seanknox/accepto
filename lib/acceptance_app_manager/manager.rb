@@ -31,7 +31,7 @@ module AcceptanceAppManager
     end
 
     def app_name
-      "#{ENV['HEROKU_APP_PREFIX']}-PR-#{pr_number}".downcase
+      "#{ENV.fetch('HEROKU_APP_PREFIX')}-PR-#{pr_number}".downcase
     end
 
     def comment_pr(comment)
@@ -42,7 +42,7 @@ module AcceptanceAppManager
     end
 
     def app_url
-      heroku.client.app.info(app_name).fetch('web_url')
+      heroku.app_url
     end
 
     def pr_number
