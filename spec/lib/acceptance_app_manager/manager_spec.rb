@@ -31,32 +31,30 @@ describe AcceptanceAppManager::Manager do
 
   describe '#create' do
     it 'calls Heroku.create and #comment_pr' do
-      allow(heroku).to receive(:create)
-      allow(AcceptanceAppManager::GithubComment).to receive(:call).with(
+      expect(heroku).to receive(:create)
+      expect(AcceptanceAppManager::GithubComment).to receive(:call).with(
         comment: app_created_comment,
         pr_number: pr_number
       )
-      expect(subject).to receive(:comment_pr).with(app_created_comment)
       subject.create
     end
   end
 
   describe '#update' do
     it 'calls Heroku.destroy and Heroku.create' do
-      allow(heroku).to receive(:create)
-      allow(heroku).to receive(:destroy)
+      expect(heroku).to receive(:create)
+      expect(heroku).to receive(:destroy)
       subject.update
     end
   end
 
   describe '#destroy' do
     it 'calls Heroku.destroy and #comment_pr' do
-      allow(heroku).to receive(:destroy)
-      allow(AcceptanceAppManager::GithubComment).to receive(:call).with(
+      expect(heroku).to receive(:destroy)
+      expect(AcceptanceAppManager::GithubComment).to receive(:call).with(
         comment: app_destroyed_comment,
         pr_number: pr_number
       )
-      expect(subject).to receive(:comment_pr).with(app_destroyed_comment)
       subject.destroy
     end
   end
