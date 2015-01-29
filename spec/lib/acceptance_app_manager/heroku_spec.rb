@@ -11,9 +11,18 @@ describe AcceptanceAppManager::Heroku do
   let(:tarball_url) { 'example.com/tarball.gz' }
   let(:app_setup) { instance_double(PlatformAPI::AppSetup) }
   let(:app) { instance_double(PlatformAPI::App) }
+  let(:mailtrap_api_token) { 'fake_mailtrap_api_token' }
+  let(:mailtrap_password) { 'fake_mailtrap_password' }
+  let(:mailtrap_username) { 'fake_mailtrap_username' }
 
   before do
-    stub_const('ENV', 'HEROKU_API_KEY' => 'fakekey')
+    stub_const(
+      'ENV',
+      'HEROKU_API_KEY' => 'fakekey',
+      'MAILTRAP_API_TOKEN' => :mailtrap_api_token,
+      'MAILTRAP_PASSWORD' => :mailtrap_password,
+      'MAILTRAP_USERNAME' => :mailtrap_username
+    )
     allow(subject).to receive(:app_setup).and_return(app_setup)
     allow(subject).to receive(:app).and_return(app)
   end
@@ -28,6 +37,12 @@ describe AcceptanceAppManager::Heroku do
         },
         app: {
           name: app_name
+        },
+        overrides: {
+          env: { 'MAILTRAP_API_TOKEN': ENV.fetch('MAILTRAP_API_TOKEN'),
+                 'MAILTRAP_PASSWORD': ENV.fetch('MAILTRAP_PASSWORD'),
+                 'MAILTRAP_USERNAME': ENV.fetch('MAILTRAP_USERNAME')
+               }
         }
       )
 

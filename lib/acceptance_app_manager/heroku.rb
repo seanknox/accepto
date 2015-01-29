@@ -28,14 +28,12 @@ module AcceptanceAppManager
     end
 
     def data
-      {
-        source_blob: {
-          url: tarball_url
-        },
-        app: {
-          name: app_name
-        }
-      }
+      {  source_blob: { url: tarball_url },
+         app: { name: app_name },
+         overrides: { env: {
+           'MAILTRAP_API_TOKEN': ENV.fetch('MAILTRAP_API_TOKEN'),
+           'MAILTRAP_PASSWORD': ENV.fetch('MAILTRAP_PASSWORD'),
+           'MAILTRAP_USERNAME': ENV.fetch('MAILTRAP_USERNAME') } } }
     end
 
     def api_key
