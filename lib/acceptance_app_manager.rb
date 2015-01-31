@@ -1,3 +1,5 @@
+require 'dotenv'
+Dotenv.load
 require 'sinatra'
 require 'json'
 require 'platform-api'
@@ -14,3 +16,4 @@ require_relative 'acceptance_app_manager/github_tarball'
 require_relative 'acceptance_app_manager/heroku'
 require_relative 'acceptance_app_manager/pull_request'
 require_relative 'acceptance_app_manager/web'
+require_relative 'acceptance_app_manager/platform_api_facade'

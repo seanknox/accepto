@@ -9,27 +9,39 @@ describe AcceptanceAppManager::Heroku do
   end
   let(:app_name) { 'fake-app-name' }
   let(:tarball_url) { 'example.com/tarball.gz' }
-  let(:app_setup) { instance_double(PlatformAPI::AppSetup) }
-  let(:app) { instance_double(PlatformAPI::App) }
-  let(:mailtrap_api_token) { 'fake_mailtrap_api_token' }
-  let(:mailtrap_password) { 'fake_mailtrap_password' }
-  let(:mailtrap_username) { 'fake_mailtrap_username' }
+  let(:heroku_api_client) do
+    instance_double(AcceptanceAppManager::PlatformApiFacade)
+  end
+  let(:mailtrap_config_vars) do
+    {
+      'MAILTRAP_API_TOKEN' =>  'mailtrap_api_token',
+      'MAILTRAP_PASSWORD'  =>  'mailtrap_password',
+      'MAILTRAP_USERNAME'  =>  'mailtrap_username',
+    }
+  end
+  let(:source_app_config_vars) do
+    {
+      'GITHUB_PROJECT'           =>  'dabohealth/iris',
+      'HEROKU_APP_PREFIX'        =>  'iris-acceptance',
+    }.merge(mailtrap_config_vars)
+  end
 
   before do
-    stub_const(
-      'ENV',
-      'HEROKU_API_KEY' => 'fakekey',
-      'MAILTRAP_API_TOKEN' => :mailtrap_api_token,
-      'MAILTRAP_PASSWORD' => :mailtrap_password,
-      'MAILTRAP_USERNAME' => :mailtrap_username
-    )
-    allow(subject).to receive(:app_setup).and_return(app_setup)
-    allow(subject).to receive(:app).and_return(app)
+    allow(AcceptanceAppManager::PlatformApiFacade).to receive(:new)
+      .with(app_name).and_return(heroku_api_client)
   end
 
   describe '#create' do
+    let(:source_app_name) { 'dabo-iris-integration' }
+    let(:env) { { 'SOURCE_APP_FOR_CONFIG_VALUES' => 'dabo-iris-integration' } }
+    before do
+      allow(heroku_api_client).to receive(:source_app_config_vars)
+        .with(source_app_name).and_return(source_app_config_vars)
+      stub_const('ENV', env)
+    end
+
     it 'calls create on Heroku app setup' do
-      expect(app_setup).to receive(
+      expect(heroku_api_client).to receive(
         :create
       ).with(
         source_blob: {
@@ -39,21 +51,17 @@ describe AcceptanceAppManager::Heroku do
           name: app_name
         },
         overrides: {
-          env: { 'MAILTRAP_API_TOKEN': ENV.fetch('MAILTRAP_API_TOKEN'),
-                 'MAILTRAP_PASSWORD': ENV.fetch('MAILTRAP_PASSWORD'),
-                 'MAILTRAP_USERNAME': ENV.fetch('MAILTRAP_USERNAME')
-               }
+          env: mailtrap_config_vars
         }
       )
-
       subject.create
     end
   end
 
   describe '#destroy' do
     it 'calls delete on the Heroku app' do
-      expect(app).to receive(:delete).with(app_name)
-      subject.destroy
+      expect(heroku_api_client).to receive(:delete)
+      subject.delete
     end
   end
 end

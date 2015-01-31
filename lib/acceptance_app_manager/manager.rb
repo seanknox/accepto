@@ -12,12 +12,12 @@ module AcceptanceAppManager
     end
 
     def update
-      heroku.destroy
+      heroku.delete
       heroku.create
     end
 
     def destroy
-      heroku.destroy
+      heroku.delete
       comment_pr('Test app deleted!')
     end
 

@@ -41,16 +41,16 @@ describe AcceptanceAppManager::Manager do
   end
 
   describe '#update' do
-    it 'calls Heroku.destroy and Heroku.create' do
+    it 'calls Heroku.delete and Heroku.create' do
       expect(heroku).to receive(:create)
-      expect(heroku).to receive(:destroy)
+      expect(heroku).to receive(:delete)
       subject.update
     end
   end
 
-  describe '#destroy' do
-    it 'calls Heroku.destroy and #comment_pr' do
-      expect(heroku).to receive(:destroy)
+  describe '#delete' do
+    it 'calls Heroku.delete and #comment_pr' do
+      expect(heroku).to receive(:delete)
       expect(AcceptanceAppManager::GithubComment).to receive(:call).with(
         comment: app_destroyed_comment,
         pr_number: pr_number
