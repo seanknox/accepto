@@ -1,16 +1,12 @@
 # Provides a simple interface (facade) to interact with PlatformAPI
 module AcceptanceAppManager
-  PlatformApiFacade = Struct.new(:app_name) do
-    def create(app_json_schema_data)
+  class PlatformApiFacade
+    def create_app(app_json_schema_data)
       app_setup.create(app_json_schema_data)
     end
 
-    def delete
+    def delete_app(app_name)
       app.delete(app_name)
-    end
-
-    def app_url
-      app.info(app_name).fetch('web_url')
     end
 
     def source_app_config_vars(source_app_name)
