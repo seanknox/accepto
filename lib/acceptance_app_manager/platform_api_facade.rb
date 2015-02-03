@@ -15,12 +15,12 @@ module AcceptanceAppManager
 
     private
 
-    def app_setup
-      client.app_setup
-    end
-
     def app
       client.app
+    end
+
+    def app_setup
+      client.app_setup
     end
 
     def config_var

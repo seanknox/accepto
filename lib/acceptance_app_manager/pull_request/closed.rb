@@ -6,10 +6,6 @@ module AcceptanceAppManager
       end
 
       def call
-        require 'pry'
-        # binding.pry
-
-        # binding.pry
         platform_api_client.delete_app(app_name)
         GithubComment.call(comment: 'Test app deleted!', pr_number: pr_number)
       end

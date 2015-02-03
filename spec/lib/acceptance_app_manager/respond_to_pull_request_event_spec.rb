@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe AcceptanceAppManager::RespondToPullRequestEvent, :vcr do
+describe AcceptanceAppManager::RespondToPullRequestEvent do
   describe '#call' do
     let(:title) { 'App.json configuration for acceptance app manager' }
     let(:params) do
@@ -18,10 +18,10 @@ describe AcceptanceAppManager::RespondToPullRequestEvent, :vcr do
 
     let(:env) do
       {
-        'GITHUB_PERSONAL_TOKEN' => 'fake_token',
+        'GITHUB_PERSONAL_TOKEN' => 'fake-token',
         'GITHUB_PROJECT' => 'dabohealth/iris',
         'GITHUB_USERNAME' => 'daboeng',
-        'HEROKU_API_KEY' => 'fake_key',
+        'HEROKU_API_KEY' => 'fake-key',
         'HEROKU_APP_PREFIX' => 'iris-acceptance',
         'SOURCE_APP_FOR_CONFIG_VALUES' => 'dabo-iris-integration',
       }
@@ -35,7 +35,6 @@ describe AcceptanceAppManager::RespondToPullRequestEvent, :vcr do
       let(:action) { 'synchronize' }
 
       it 'calls Synchronize' do
-        #TODO: Figure out why this isn't finding the app to delete
         expect(AcceptanceAppManager::PullRequest::Synchronize).to receive(:call)
         described_class.call(params)
       end
@@ -45,7 +44,6 @@ describe AcceptanceAppManager::RespondToPullRequestEvent, :vcr do
       let(:action) { 'closed' }
 
       it 'calls Closed' do
-        #TODO: Figure out why this isn't making the network call
         expect(AcceptanceAppManager::PullRequest::Closed).to receive(:call)
         described_class.call(params)
       end
