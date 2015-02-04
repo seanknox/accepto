@@ -9,8 +9,8 @@ module AcceptanceAppManager
       app.delete(app_name)
     end
 
-    def source_app_config_vars(source_app_name)
-      config_var.info(source_app_name)
+    def source_app_config_vars
+      config_var.info(ENV.fetch('SOURCE_APP_FOR_CONFIG_VALUES'))
     end
 
     private

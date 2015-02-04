@@ -18,7 +18,7 @@ module AcceptanceAppManager
         AcceptanceAppManager::GetAppSchemaData.call(
           branch_name: branch_name,
           app_name: app_name,
-          platform_api_client: platform_api_client,
+          source_app_env: platform_api_client.source_app_config_vars,
         )
       end
 

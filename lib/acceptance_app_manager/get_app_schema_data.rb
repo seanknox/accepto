@@ -13,28 +13,18 @@ module AcceptanceAppManager
           name: app_name,
         },
         overrides: {
-          env: mailtrap_config_vars,
+          env: {
+            'PR_APP_NAME': app_name,
+            'MAILTRAP_API_TOKEN': source_app_env.fetch('MAILTRAP_API_TOKEN'),
+            'MAILTRAP_USERNAME': source_app_env.fetch('MAILTRAP_USERNAME'),
+            'MAILTRAP_PASSWORD': source_app_env.fetch('MAILTRAP_PASSWORD'),
+          }
         }
       }
     end
 
-    def source_app_config_vars
-      @integration_config_vars ||= platform_api_client.source_app_config_vars(
-        ENV.fetch('SOURCE_APP_FOR_CONFIG_VALUES')
-      )
-    end
-
-    def platform_api_client
-      options.fetch(:platform_api_client)
-    end
-
-    def mailtrap_config_vars
-      mailtrap_keys = %w(
-        MAILTRAP_API_TOKEN
-        MAILTRAP_USERNAME
-        MAILTRAP_PASSWORD
-      )
-      source_app_config_vars.select { |key, _| mailtrap_keys.include?(key) }
+    def source_app_env
+      options.fetch(:source_app_env)
     end
 
     def tarball_url

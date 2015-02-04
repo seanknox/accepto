@@ -20,6 +20,11 @@ describe AcceptanceAppManager::PlatformApiFacade do
     }
   end
   let(:source_app_name) { 'test-source-app' }
+  let(:env) { { 'SOURCE_APP_FOR_CONFIG_VALUES' => source_app_name } }
+
+  before do
+    stub_const('ENV', env)
+  end
 
   specify '#create_app' do
     allow(subject).to receive(:app_setup).and_return(app_setup)
@@ -36,6 +41,6 @@ describe AcceptanceAppManager::PlatformApiFacade do
   specify '#source_app_config_vars' do
     allow(subject).to receive(:config_var).and_return(config_var)
     expect(config_var).to receive(:info).with(source_app_name)
-    subject.source_app_config_vars(source_app_name)
+    subject.source_app_config_vars
   end
 end
