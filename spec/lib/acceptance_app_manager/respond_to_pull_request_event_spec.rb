@@ -3,14 +3,21 @@ require 'spec_helper'
 describe AcceptanceAppManager::RespondToPullRequestEvent do
   describe '#call' do
     let(:title) { 'App.json configuration for acceptance app manager' }
+    let(:pr_number) { '74' }
+    let(:app_name) { 'iris-acceptance-pr-74' }
+    let(:branch_name) { 'chores/set-up-mailtrap-86957570' }
+    let(:platform_api_client) do
+      instance_double(AcceptanceAppManager::PlatformApiFacade)
+    end
+
     let(:params) do
       {
         'action' => action,
         'pull_request' => {
           'title' => title,
-          'number' => '74',
+          'number' => pr_number,
           'head' => {
-            'ref' => 'chores/set-up-mailtrap-86957570'
+            'ref' => branch_name
           }
         }
       }
@@ -27,60 +34,68 @@ describe AcceptanceAppManager::RespondToPullRequestEvent do
       }
     end
 
+    let(:args) do
+      {
+        pr_number: pr_number,
+        platform_api_client: platform_api_client,
+        app_name: app_name,
+        branch_name: branch_name,
+      }
+    end
+
+    shared_examples 'a pull request action' do
+      let(:pull_request_class_name) do
+        Object.const_get(
+          "AcceptanceAppManager::PullRequest::#{action.capitalize}"
+        )
+      end
+
+      it 'calls the appropiate class' do
+        allow(AcceptanceAppManager::PlatformApiFacade).to receive(:new).
+          and_return(platform_api_client)
+        expect(pull_request_class_name).to receive(:call).with(args)
+        described_class.call(params)
+      end
+    end
+
     before do
       stub_const('ENV', env)
     end
 
-    context 'action == synchronize' do
+    context 'when the action is synchronize' do
       let(:action) { 'synchronize' }
-
-      it 'calls Synchronize' do
-        expect(AcceptanceAppManager::PullRequest::Synchronize).to receive(:call)
-        described_class.call(params)
-      end
+      it_behaves_like 'a pull request action'
     end
 
     context 'action == closed' do
       let(:action) { 'closed' }
-
-      it 'calls Closed' do
-        expect(AcceptanceAppManager::PullRequest::Closed).to receive(:call)
-        described_class.call(params)
-      end
+      it_behaves_like 'a pull request action'
     end
 
     context 'action == reopened' do
       let(:action) { 'reopened' }
-
-      it 'calls Reopened' do
-        expect(AcceptanceAppManager::PullRequest::Reopened).to receive(:call)
-        described_class.call(params)
-      end
+      it_behaves_like 'a pull request action'
     end
 
     context 'action == opened' do
       let(:action) { 'opened' }
-
-      it 'calls Opened' do
-        expect(AcceptanceAppManager::PullRequest::Opened).to receive(:call)
-        described_class.call(params)
-      end
+      it_behaves_like 'a pull request action'
     end
 
     context 'title includes WIP' do
       let(:action) { 'opened' }
       let(:title) { 'WIP' }
 
-      it 'returns' do
-        described_class.call(params)
+      it 'does nothing' do
+        expect(described_class.call(params)).to eq(nil)
       end
     end
 
     context 'action we do not handle' do
       let(:action) { 'unassigned' }
 
-      it 'returns' do
-        described_class.call(params)
+      it 'it does nothing' do
+        expect(described_class.call(params)).to eq(nil)
       end
     end
   end

@@ -4,12 +4,12 @@ module AcceptanceAppManager
   # appropiate class. E.g. An Opened pr_action will result in the Opened class
   # being called.
   RespondToPullRequestEvent = Struct.new(:options) do
-    SUPPORTED_PR_ACTIONS = [
-      'synchronize',
-      'opened',
-      'reopened',
-      'closed'
-    ]
+    SUPPORTED_PR_ACTIONS = %w(
+      synchronize
+      opened
+      reopened
+      closed
+    )
 
     def self.call(*args)
       new(*args).call
