@@ -1,5 +1,6 @@
 # Provides a simple interface (facade) to interact with PlatformAPI
 module AcceptanceAppManager
+  # Provides a simple interface to the PlatformApi that is easy to use and test.
   class PlatformApiFacade
     def create_app(app_json_schema_data)
       app_setup.create(app_json_schema_data)

@@ -1,4 +1,5 @@
 module AcceptanceAppManager
+  # Assembles the data needed to create an app using Heroku's app.json feature.
   GetAppSchemaData = Struct.new(:options) do
     def self.call(*args)
       new(*args).call

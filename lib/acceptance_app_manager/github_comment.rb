@@ -1,4 +1,5 @@
 module AcceptanceAppManager
+  # Comments on a pull request.
   GithubComment = Struct.new(:options) do
     def self.call(*args)
       new(*args).call

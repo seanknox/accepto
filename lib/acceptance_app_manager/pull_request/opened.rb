@@ -1,7 +1,7 @@
 module AcceptanceAppManager
   module PullRequest
     # Creates a heroku acceptance app and comments on the Github PR
-    # with a link to the app
+    # with a link to the app.
     Opened = Struct.new(:options) do
       def self.call(*args)
         new(*args).call

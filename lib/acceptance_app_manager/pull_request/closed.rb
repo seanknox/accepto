@@ -1,5 +1,6 @@
 module AcceptanceAppManager
   module PullRequest
+    # Deletes an heroku acceptance app and comments on the pr.
     Closed = Struct.new(:options) do
       def self.call(*args)
         new(*args).call

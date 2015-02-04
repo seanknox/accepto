@@ -1,5 +1,7 @@
 # Gets the tarball link from Github
 module AcceptanceAppManager
+  # Fetches a temporary url for a specified branch which is used by Heroku's
+  # app.json feature.
   GithubTarball = Struct.new(:options) do
     def self.call(*args)
       new(*args).call

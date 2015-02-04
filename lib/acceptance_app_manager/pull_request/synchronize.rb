@@ -1,5 +1,7 @@
 module AcceptanceAppManager
   module PullRequest
+    # Deletes an acceptance app and then re-creates it. There will be a comment
+    # for the deletion and creation of the app.
     Synchronize = Struct.new(:options) do
       def self.call(*args)
         new(*args).call

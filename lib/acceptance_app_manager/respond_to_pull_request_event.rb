@@ -1,5 +1,8 @@
 # This is the entry point in Pull Request hook actions.
 module AcceptanceAppManager
+  # Parses the pull_request_action from the GitHub webhook params and calls the
+  # appropiate class. E.g. An Opened pr_action will result in the Opened class
+  # being called.
   RespondToPullRequestEvent = Struct.new(:options) do
     SUPPORTED_PR_ACTIONS = [
       'synchronize',
@@ -7,6 +10,7 @@ module AcceptanceAppManager
       'reopened',
       'closed'
     ]
+
     def self.call(*args)
       new(*args).call
     end
