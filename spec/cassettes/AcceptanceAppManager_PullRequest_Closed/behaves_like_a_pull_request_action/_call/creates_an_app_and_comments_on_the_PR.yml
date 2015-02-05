@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: delete
-    uri: https://user:1f9bfc3a-c40d-4328-92f2-84489feb7919@api.heroku.com/apps/iris-acceptance-pr-74
+    uri: https://user:heroku-api-key@api.heroku.com/apps/iris-acceptance-pr-74
     body:
       encoding: US-ASCII
       string: ''
@@ -51,11 +51,11 @@ http_interactions:
     body:
       encoding: UTF-8
       string: '{"archived_at":null,"buildpack_provided_description":"Ruby","build_stack":{"id":"f9f9cbd7-2970-41ef-8db5-3df7123b041f","name":"cedar-14"},"created_at":"2015-02-04T23:58:53Z","id":"727696eb-a078-4c23-a3ba-dc455cbfa2fd","git_url":"git@heroku.com:iris-acceptance-pr-74.git","maintenance":false,"name":"iris-acceptance-pr-74","owner":{"email":"eng-service@dabohealth.com","id":"801ad5e6-6d15-431b-b99d-26a6d928bed9"},"region":{"id":"59accabd-516d-4f0e-83e6-6e3757701145","name":"us"},"released_at":"2015-02-05T00:01:47Z","repo_size":655942,"slug_size":44259004,"stack":{"id":"f9f9cbd7-2970-41ef-8db5-3df7123b041f","name":"cedar-14"},"updated_at":"2015-02-05T00:11:34Z","web_url":"https://iris-acceptance-pr-74.herokuapp.com/"}'
-    http_version: 
+    http_version:
   recorded_at: Thu, 05 Feb 2015 00:11:35 GMT
 - request:
     method: post
-    uri: https://daboeng:8ebf515b47bcbd38db447eb039d50a55bc3192ec@api.github.com/repos/dabohealth/iris/issues/74/comments
+    uri: https://daboeng:github-personal-token@api.github.com/repos/dabohealth/iris/issues/74/comments
     body:
       encoding: UTF-8
       string: '{"body":"Test app deleted!"}'
@@ -129,6 +129,6 @@ http_interactions:
       encoding: UTF-8
       string: '{"url":"https://api.github.com/repos/dabohealth/iris/issues/comments/72969010","html_url":"https://github.com/dabohealth/iris/pull/74#issuecomment-72969010","issue_url":"https://api.github.com/repos/dabohealth/iris/issues/74","id":72969010,"user":{"login":"daboeng","id":6217062,"avatar_url":"https://avatars.githubusercontent.com/u/6217062?v=3","gravatar_id":"","url":"https://api.github.com/users/daboeng","html_url":"https://github.com/daboeng","followers_url":"https://api.github.com/users/daboeng/followers","following_url":"https://api.github.com/users/daboeng/following{/other_user}","gists_url":"https://api.github.com/users/daboeng/gists{/gist_id}","starred_url":"https://api.github.com/users/daboeng/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/daboeng/subscriptions","organizations_url":"https://api.github.com/users/daboeng/orgs","repos_url":"https://api.github.com/users/daboeng/repos","events_url":"https://api.github.com/users/daboeng/events{/privacy}","received_events_url":"https://api.github.com/users/daboeng/received_events","type":"User","site_admin":false},"created_at":"2015-02-05T00:11:34Z","updated_at":"2015-02-05T00:11:34Z","body":"Test
         app deleted!"}'
-    http_version: 
+    http_version:
   recorded_at: Thu, 05 Feb 2015 00:11:35 GMT
 recorded_with: VCR 2.9.3

@@ -1,5 +1,3 @@
-require 'dotenv'
-Dotenv.load
 require 'sinatra'
 require 'json'
 require 'platform-api'
