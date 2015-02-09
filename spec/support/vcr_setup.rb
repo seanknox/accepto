@@ -11,7 +11,10 @@ VCR.configure do |config|
   #  describe SomeThing, vcr: { record: :new_episodes }
   # Then, once the cassette is recorded, change it to this:
   #  describe Something, :vcr
-  config.default_cassette_options = { record: :none }
+  config.default_cassette_options = {
+    match_requests_on: [:uri, :method, :body],
+    record: :none
+  }
 
   # Allow Code Climate gem to send test info for CI integration
   config.ignore_hosts 'codeclimate.com'
