@@ -1,3 +1,5 @@
+[![Code Climate](https://codeclimate.com/repos/54b5734c6956801129003a1b/badges/a6061f161ef777b9a6a1/gpa.svg)](https://codeclimate.com/repos/54b5734c6956801129003a1b/feed) [![Test Coverage](https://codeclimate.com/repos/54b5734c6956801129003a1b/badges/a6061f161ef777b9a6a1/coverage.svg)](https://codeclimate.com/repos/54b5734c6956801129003a1b/feed)
+
 # Acceptance App Manager
 Acceptance App Manager creates new Heroku applications for GitHub branches using the App Setup resource of the [Heroku Platform API] and GitHub webhooks for a [Pull Request Event].
 
