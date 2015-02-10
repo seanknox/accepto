@@ -14,7 +14,7 @@ GetAppSchemaData = Struct.new(:options) do
       },
       overrides: {
         env: {
-          'PR_APP_NAME': app_name,
+          'APP_NAME': app_name,
           'MAILTRAP_API_TOKEN': source_app_env.fetch('MAILTRAP_API_TOKEN'),
           'MAILTRAP_USERNAME': source_app_env.fetch('MAILTRAP_USERNAME'),
           'MAILTRAP_PASSWORD': source_app_env.fetch('MAILTRAP_PASSWORD'),
