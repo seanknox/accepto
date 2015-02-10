@@ -1,5 +1,7 @@
 source 'http://rubygems.org'
 
+ruby '2.2.0'
+
 gem 'codeclimate-test-reporter'
 gem 'sinatra'
 gem 'json'
