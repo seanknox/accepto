@@ -14,6 +14,10 @@ class HerokuClient
     config_var.info(ENV.fetch('SOURCE_APP_FOR_CONFIG_VARS'))
   end
 
+  def collaborator_resource
+    client.collaborator
+  end
+
   private
 
   def app

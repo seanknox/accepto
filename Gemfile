@@ -3,7 +3,7 @@ source 'http://rubygems.org'
 ruby '2.2.0'
 
 gem 'codeclimate-test-reporter'
-gem 'sinatra'
+gem 'sinatra', git: 'https://github.com/sinatra/sinatra.git'
 gem 'json'
 gem 'platform-api'
 gem 'octokit'

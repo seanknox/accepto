@@ -129,7 +129,7 @@ http_interactions:
       string: '{"source_blob":{"url":"https://codeload.github.com/dabohealth/iris/legacy.tar.gz/test-branch-please-ignore?token=AF7dZvMuK4COnvgHXDOIdyh69ZfKYlhDks5U2SekwA=="},"app":{"name":"iris-acceptance-pr-92"},"overrides":{"env":{"APP_NAME":"iris-acceptance-pr-92","MAILTRAP_API_TOKEN":"fake-mailtrap-api-token","MAILTRAP_USERNAME":"28870836dac80349c","MAILTRAP_PASSWORD":"fake-mailtrap-password"}}}'
     headers:
       User-Agent:
-      - excon/0.44.1
+      - excon/0.43.0
       Authorization:
       - Basic dXNlcjoxZjliZmMzYS1jNDBkLTQzMjgtOTJmMi04NDQ4OWZlYjc5MTk=
       Accept:
