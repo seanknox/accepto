@@ -11,21 +11,29 @@ class HerokuClient
   end
 
   def source_app_config_vars
-    config_var.info(ENV.fetch('SOURCE_APP_FOR_CONFIG_VARS'))
+    config_var.info(source_app)
   end
 
-  def collaborator_resource
-    client.collaborator
+  def add_collaborator(app_name, user_params)
+    collaborator.create(app_name, user_params)
+  end
+
+  def source_app_collaborators
+    collaborator.list(source_app)
   end
 
   private
+
+  def app_setup
+    client.app_setup
+  end
 
   def app
     client.app
   end
 
-  def app_setup
-    client.app_setup
+  def collaborator
+    client.collaborator
   end
 
   def config_var
@@ -34,5 +42,9 @@ class HerokuClient
 
   def client
     @client ||= PlatformAPI.connect(ENV.fetch('HEROKU_API_KEY'))
+  end
+
+  def source_app
+    @source_app ||= ENV.fetch('SOURCE_APP_FOR_CONFIG_VARS')
   end
 end
