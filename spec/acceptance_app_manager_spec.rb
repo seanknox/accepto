@@ -7,7 +7,7 @@ describe 'Github web hooks receiver', :vcr do
     {
       action: 'opened',
       pull_request: {
-        number: '92',
+        number: '111',
         head: {
           ref: 'test-branch-please-ignore',
         },
@@ -18,7 +18,7 @@ describe 'Github web hooks receiver', :vcr do
 
   it 'receives hook and inititates a pull request task accordingly' do
     stub_const('ENV',
-      'GITHUB_PERSONAL_TOKEN' => 'fake-github-token',
+      'GITHUB_PERSONAL_TOKEN' => 'fake-github-personal-token',
       'GITHUB_PROJECT' => 'dabohealth/iris',
       'GITHUB_USERNAME' => 'daboeng',
       'HEROKU_API_KEY' => 'fake-heroku-api-key',
@@ -28,5 +28,7 @@ describe 'Github web hooks receiver', :vcr do
     post '/hooks',
          params.to_json,
          'CONTENT_TYPE' => 'application/json'
+
+    expect(last_response.body).to eq 'Successfully responded to Pull Request!'
   end
 end
