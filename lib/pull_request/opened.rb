@@ -7,15 +7,40 @@ module PullRequest
     end
 
     def call
-      heroku_result = heroku_client.create_app(app_schema_data)
-      github_result = GithubComment.call(comment: comment, pr_number: pr_number)
       {
-        heroku_status: heroku_result.fetch('status'),
-        github_comment_url: github_result.to_h.fetch(:html_url)
+        heroku_status: create_heroku_app.fetch('status'),
+        collaborator_emails: add_collaborators,
+        github_comment_url: add_github_comment.to_h.fetch(:html_url),
       }
     end
 
     private
+
+    def create_heroku_app
+      heroku_client.create_app(app_schema_data)
+    end
+
+    def add_collaborators
+      AddHerokuCollaborators.call(
+        heroku_client: heroku_client,
+        app_name: app_name,
+      )
+    end
+
+    def add_github_comment
+      GithubComment.call(
+        comment: comment,
+        pr_number: pr_number,
+      )
+    end
+
+    def app_schema_data
+      GetAppSchemaData.call(
+        branch_name: branch_name,
+        app_name: app_name,
+        source_app_env: heroku_client.source_app_config_vars,
+      )
+    end
 
     def app_schema_data
       GetAppSchemaData.call(

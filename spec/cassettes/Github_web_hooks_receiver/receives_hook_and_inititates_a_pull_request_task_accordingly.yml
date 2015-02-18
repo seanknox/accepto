@@ -21,21 +21,21 @@ http_interactions:
       Content-Type:
       - application/json
       Date:
-      - Mon, 09 Feb 2015 20:05:40 GMT
+      - Wed, 18 Feb 2015 00:47:36 GMT
       Etag:
-      - '"8fe2f836c067499c080af7be3a9b2a5f"'
+      - '"cf4e1f8446d76755e8cf7272f0d9d666"'
       Last-Modified:
-      - Mon, 09 Feb 2015 18:38:00 GMT
+      - Tue, 17 Feb 2015 18:55:12 GMT
       Oauth-Scope:
       - global
       Oauth-Scope-Accepted:
       - global read-protected write-protected
       Ratelimit-Remaining:
-      - '2393'
+      - '2399'
       Request-Id:
-      - 7054e9df-9bc2-44b1-b84a-24eed5a2123a
+      - cb7db41b-619e-4202-bd7d-f5511f784500
       Server:
-      - nginx/1.4.7
+      - nginx/1.4.6 (Ubuntu)
       Status:
       - 200 OK
       Vary:
@@ -43,19 +43,19 @@ http_interactions:
       X-Content-Type-Options:
       - nosniff
       X-Runtime:
-      - '0.04621904'
+      - '0.038232827'
       Content-Length:
       - '939'
       Connection:
       - keep-alive
     body:
       encoding: UTF-8
-      string: '{"DATABASE_URL":"postgres://wrwiwahdcvfima:LEt4H9b0jiAAH43eKavidZVH7I@ec2-107-20-166-127.compute-1.amazonaws.com:5432/dib51ob8n7o2i","HEROKU_POSTGRESQL_BROWN_URL":"postgres://wrwiwahdcvfima:LEt4H9b0jiAAH43eKavidZVH7I@ec2-107-20-166-127.compute-1.amazonaws.com:5432/dib51ob8n7o2i","PGBACKUPS_URL":"https://698837:7q0km2ct04kx6jjz48iq9eqax@pgbackups.herokuapp.com/client","DOWNSTREAM_APP":"dabo-iris-staging","RACK_ENV":"production","REDISTOGO_URL":"redis://redistogo:240270bab27db113c8af0cd2401a545f@dab.redistogo.com:9682/","DABO_AWS_ACCESS_KEY_ID":"fake-dabo-access-key-id","DABO_AWS_BUCKET":"dabo-iris-integration","DABO_AWS_REGION":"us-west-1","DABO_AWS_SECRET_ACCESS_KEY":"fake-dabo-aws-secret-access-key","MAILTRAP_API_TOKEN":"fake-mailtrap-api-token","MAILTRAP_USERNAME":"28870836dac80349c","MAILTRAP_PASSWORD":"fake-mailtrap-password","MAILTRAP_DOMAIN":"mailtrap.io","MAILTRAP_PORT":"2525","APP_NAME":"dabo-iris-integration"}'
+      string: '{"DATABASE_URL":"postgres://wrwiwahdcvfima:LEt4H9b0jiAAH43eKavidZVH7I@ec2-107-20-166-127.compute-1.amazonaws.com:5432/dib51ob8n7o2i","HEROKU_POSTGRESQL_BROWN_URL":"postgres://wrwiwahdcvfima:LEt4H9b0jiAAH43eKavidZVH7I@ec2-107-20-166-127.compute-1.amazonaws.com:5432/dib51ob8n7o2i","PGBACKUPS_URL":"https://698837:7q0km2ct04kx6jjz48iq9eqax@pgbackups.herokuapp.com/client","DOWNSTREAM_APP":"dabo-iris-staging","RACK_ENV":"production","REDISTOGO_URL":"redis://redistogo:240270bab27db113c8af0cd2401a545f@dab.redistogo.com:9682/","DABO_AWS_ACCESS_KEY_ID":"AKIAIJ3JCEKZTE6VDZWA","DABO_AWS_BUCKET":"dabo-iris-integration","DABO_AWS_REGION":"us-west-1","DABO_AWS_SECRET_ACCESS_KEY":"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","MAILTRAP_API_TOKEN":"e8de49de7ef1661d86b09795a329e946","MAILTRAP_USERNAME":"28870836dac80349c","MAILTRAP_PASSWORD":"3e52e9e7cc92bd","MAILTRAP_DOMAIN":"mailtrap.io","MAILTRAP_PORT":"2525","APP_NAME":"dabo-iris-integration"}'
     http_version:
-  recorded_at: Mon, 09 Feb 2015 20:05:40 GMT
+  recorded_at: Wed, 18 Feb 2015 00:47:36 GMT
 - request:
     method: head
-    uri: https://daboeng:fake-github-token@api.github.com/repos/dabohealth/iris/tarball/test-branch-please-ignore
+    uri: https://daboeng:fake-github-personal-token@api.github.com/repos/dabohealth/iris/tarball/test-branch-please-ignore
     body:
       encoding: US-ASCII
       string: ''
@@ -74,7 +74,7 @@ http_interactions:
       Server:
       - GitHub.com
       Date:
-      - Mon, 09 Feb 2015 21:32:24 GMT
+      - Wed, 18 Feb 2015 00:47:36 GMT
       Content-Type:
       - text/html;charset=utf-8
       Content-Length:
@@ -84,15 +84,15 @@ http_interactions:
       X-Ratelimit-Limit:
       - '5000'
       X-Ratelimit-Remaining:
-      - '4998'
+      - '4984'
       X-Ratelimit-Reset:
-      - '1423520182'
+      - '1424220942'
       Cache-Control:
       - public, must-revalidate, max-age=0
       Expires:
-      - Mon, 09 Feb 2015 21:32:24 GMT
+      - Wed, 18 Feb 2015 00:47:36 GMT
       Location:
-      - https://codeload.github.com/dabohealth/iris/legacy.tar.gz/test-branch-please-ignore?token=AF7dZvMuK4COnvgHXDOIdyh69ZfKYlhDks5U2SekwA==
+      - https://codeload.github.com/dabohealth/iris/legacy.tar.gz/test-branch-please-ignore?token=AF7dZjIM-KzNV3K33_rDl44XQqadAYlcks5U4-FkwA==
       X-Xss-Protection:
       - 1; mode=block
       X-Frame-Options:
@@ -107,7 +107,7 @@ http_interactions:
       Access-Control-Allow-Origin:
       - "*"
       X-Github-Request-Id:
-      - D826973E:2027:9C0E36A:54D92767
+      - D826973E:202D:1BDD7830:54E3E128
       Strict-Transport-Security:
       - max-age=31536000; includeSubdomains; preload
       X-Content-Type-Options:
@@ -115,18 +115,18 @@ http_interactions:
       Vary:
       - Accept-Encoding
       X-Served-By:
-      - 318e55760cf7cdb40e61175a4d36cd32
+      - 76d9828c7e4f1d910f7ba069e90ce976
     body:
       encoding: UTF-8
       string: ''
     http_version:
-  recorded_at: Mon, 09 Feb 2015 21:32:24 GMT
+  recorded_at: Wed, 18 Feb 2015 00:47:36 GMT
 - request:
     method: post
     uri: https://user:fake-heroku-api-key@api.heroku.com/app-setups
     body:
       encoding: UTF-8
-      string: '{"source_blob":{"url":"https://codeload.github.com/dabohealth/iris/legacy.tar.gz/test-branch-please-ignore?token=AF7dZvMuK4COnvgHXDOIdyh69ZfKYlhDks5U2SekwA=="},"app":{"name":"iris-acceptance-pr-92"},"overrides":{"env":{"APP_NAME":"iris-acceptance-pr-92","MAILTRAP_API_TOKEN":"fake-mailtrap-api-token","MAILTRAP_USERNAME":"28870836dac80349c","MAILTRAP_PASSWORD":"fake-mailtrap-password"}}}'
+      string: '{"source_blob":{"url":"https://codeload.github.com/dabohealth/iris/legacy.tar.gz/test-branch-please-ignore?token=AF7dZjIM-KzNV3K33_rDl44XQqadAYlcks5U4-FkwA=="},"app":{"name":"iris-acceptance-pr-111"},"overrides":{"env":{"APP_NAME":"iris-acceptance-pr-111","MAILTRAP_API_TOKEN":"e8de49de7ef1661d86b09795a329e946","MAILTRAP_USERNAME":"28870836dac80349c","MAILTRAP_PASSWORD":"3e52e9e7cc92bd"}}}'
     headers:
       User-Agent:
       - excon/0.44.1
@@ -144,7 +144,7 @@ http_interactions:
       Content-Type:
       - application/json
       Date:
-      - Mon, 09 Feb 2015 21:32:25 GMT
+      - Wed, 18 Feb 2015 00:47:37 GMT
       Location:
       - ''
       Oauth-Scope:
@@ -152,11 +152,11 @@ http_interactions:
       Oauth-Scope-Accepted:
       - global write write-protected
       Ratelimit-Remaining:
-      - '2399'
+      - '2398'
       Request-Id:
-      - 0bdbfbbf-804e-4d9e-8afa-2578e1a2104a
+      - 4f8174a3-2874-4983-88aa-1b6d7abbb568
       Server:
-      - nginx/1.4.7
+      - nginx/1.4.6 (Ubuntu)
       Status:
       - 202 Accepted
       Vary:
@@ -164,22 +164,232 @@ http_interactions:
       X-Content-Type-Options:
       - nosniff
       X-Runtime:
-      - '0.440803834'
+      - '0.448810163'
       Content-Length:
-      - '381'
+      - '382'
       Connection:
       - keep-alive
     body:
       encoding: UTF-8
-      string: '{"id":"7062cef3-268d-4699-8eb7-13060d7eebfb","failure_message":null,"status":"pending","app":{"id":"9a5b74f9-24a3-4d1b-acb2-54cb26e1ac04","name":"iris-acceptance-pr-92"},"build":{"id":null,"status":null},"manifest_errors":[],"postdeploy":{"output":null,"exit_code":null},"resolved_success_url":null,"created_at":"2015-02-09T21:32:25+00:00","updated_at":"2015-02-09T21:32:25+00:00"}'
+      string: '{"id":"251dbc86-f117-4814-8916-0f560b1eada6","failure_message":null,"status":"pending","app":{"id":"e1201986-a2b4-4aeb-8db8-c89af8a69868","name":"iris-acceptance-pr-111"},"build":{"id":null,"status":null},"manifest_errors":[],"postdeploy":{"output":null,"exit_code":null},"resolved_success_url":null,"created_at":"2015-02-18T00:47:37+00:00","updated_at":"2015-02-18T00:47:37+00:00"}'
     http_version:
-  recorded_at: Mon, 09 Feb 2015 21:32:25 GMT
+  recorded_at: Wed, 18 Feb 2015 00:47:37 GMT
 - request:
-    method: post
-    uri: https://daboeng:fake-github-token@api.github.com/repos/dabohealth/iris/issues/92/comments
+    method: get
+    uri: https://user:fake-heroku-api-key@api.heroku.com/apps/dabo-iris-integration/collaborators
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - excon/0.44.1
+      Authorization:
+      - Basic dXNlcjoxZjliZmMzYS1jNDBkLTQzMjgtOTJmMi04NDQ4OWZlYjc5MTk=
+      Accept:
+      - application/vnd.heroku+json; version=3
+  response:
+    status:
+      code: 200
+      message: ''
+    headers:
+      Accept-Ranges:
+      - email, id
+      Content-Range:
+      - email eng-service@dabohealth.com..richa@dabohealth.com
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 18 Feb 2015 00:47:37 GMT
+      Etag:
+      - '"377f2e777be4cc53f0c61c2eda9c9ee2"'
+      Last-Modified:
+      - Tue, 17 Feb 2015 00:06:48 GMT
+      Oauth-Scope:
+      - global
+      Oauth-Scope-Accepted:
+      - global read read-protected write write-protected
+      Ratelimit-Remaining:
+      - '2394'
+      Request-Id:
+      - 676181c4-9430-4770-b158-39b5815a4984
+      Server:
+      - nginx/1.4.6 (Ubuntu)
+      Status:
+      - 200 OK
+      Vary:
+      - Accept-Encoding
+      X-Content-Type-Options:
+      - nosniff
+      X-Runtime:
+      - '0.04524041'
+      Content-Length:
+      - '627'
+      Connection:
+      - keep-alive
     body:
       encoding: UTF-8
-      string: '{"body":"Test URL: https://iris-acceptance-pr-92.herokuapp.com"}'
+      string: '[{"created_at":"2014-12-30T01:37:43Z","id":"4e9b1b19-96ef-42db-bd88-08069d70456c","updated_at":"2014-12-30T01:37:43Z","user":{"id":"801ad5e6-6d15-431b-b99d-26a6d928bed9","email":"eng-service@dabohealth.com"},"role":"owner"},{"created_at":"2015-01-06T23:50:02Z","id":"e0bd536e-b444-41e5-a5c8-eed9704cf654","updated_at":"2015-01-06T23:50:02Z","user":{"id":"89542daa-a99b-4f05-aa24-d69c9ada2cd1","email":"nate@dabohealth.com"}},{"created_at":"2015-02-17T00:06:48Z","id":"61cd5e3b-4f21-4b9d-8e0a-5c161bd9f220","updated_at":"2015-02-17T00:06:48Z","user":{"id":"4d4c33f2-86af-4382-8a0b-12f33618c2b0","email":"richa@dabohealth.com"}}]'
+    http_version:
+  recorded_at: Wed, 18 Feb 2015 00:47:37 GMT
+- request:
+    method: post
+    uri: https://user:fake-heroku-api-key@api.heroku.com/apps/iris-acceptance-pr-111/collaborators
+    body:
+      encoding: UTF-8
+      string: '{"silent":true,"user":"eng-service@dabohealth.com"}'
+    headers:
+      User-Agent:
+      - excon/0.44.1
+      Authorization:
+      - Basic dXNlcjoxZjliZmMzYS1jNDBkLTQzMjgtOTJmMi04NDQ4OWZlYjc5MTk=
+      Accept:
+      - application/vnd.heroku+json; version=3
+      Content-Type:
+      - application/json
+  response:
+    status:
+      code: 201
+      message: ''
+    headers:
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 18 Feb 2015 00:47:38 GMT
+      Oauth-Scope:
+      - global
+      Oauth-Scope-Accepted:
+      - global write-protected
+      Ratelimit-Remaining:
+      - '2393'
+      Request-Id:
+      - f9acc878-ac4c-40c6-86fb-59cdcd042f88
+      Server:
+      - nginx/1.4.6 (Ubuntu)
+      Status:
+      - 201 Created
+      Vary:
+      - Accept-Encoding
+      X-Content-Type-Options:
+      - nosniff
+      X-Runtime:
+      - '0.037797561'
+      Content-Length:
+      - '222'
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"created_at":"2015-02-18T00:47:37Z","id":"9d7a0172-e8dc-4210-8b3b-88dd115b804b","updated_at":"2015-02-18T00:47:37Z","user":{"id":"801ad5e6-6d15-431b-b99d-26a6d928bed9","email":"eng-service@dabohealth.com"},"role":"owner"}'
+    http_version:
+  recorded_at: Wed, 18 Feb 2015 00:47:38 GMT
+- request:
+    method: post
+    uri: https://user:fake-heroku-api-key@api.heroku.com/apps/iris-acceptance-pr-111/collaborators
+    body:
+      encoding: UTF-8
+      string: '{"silent":true,"user":"nate@dabohealth.com"}'
+    headers:
+      User-Agent:
+      - excon/0.44.1
+      Authorization:
+      - Basic dXNlcjoxZjliZmMzYS1jNDBkLTQzMjgtOTJmMi04NDQ4OWZlYjc5MTk=
+      Accept:
+      - application/vnd.heroku+json; version=3
+      Content-Type:
+      - application/json
+  response:
+    status:
+      code: 201
+      message: ''
+    headers:
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 18 Feb 2015 00:47:38 GMT
+      Oauth-Scope:
+      - global
+      Oauth-Scope-Accepted:
+      - global write-protected
+      Ratelimit-Remaining:
+      - '2392'
+      Request-Id:
+      - abfec656-79d4-4d09-8e69-22b5bcde9dad
+      Server:
+      - nginx/1.4.6 (Ubuntu)
+      Status:
+      - 201 Created
+      Vary:
+      - Accept-Encoding
+      X-Content-Type-Options:
+      - nosniff
+      X-Runtime:
+      - '0.06777668'
+      Content-Length:
+      - '200'
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"created_at":"2015-02-18T00:47:38Z","id":"dbcd16b2-192b-4f5d-bcd2-15606dac930f","updated_at":"2015-02-18T00:47:38Z","user":{"id":"89542daa-a99b-4f05-aa24-d69c9ada2cd1","email":"nate@dabohealth.com"}}'
+    http_version:
+  recorded_at: Wed, 18 Feb 2015 00:47:38 GMT
+- request:
+    method: post
+    uri: https://user:fake-heroku-api-key@api.heroku.com/apps/iris-acceptance-pr-111/collaborators
+    body:
+      encoding: UTF-8
+      string: '{"silent":true,"user":"richa@dabohealth.com"}'
+    headers:
+      User-Agent:
+      - excon/0.44.1
+      Authorization:
+      - Basic dXNlcjoxZjliZmMzYS1jNDBkLTQzMjgtOTJmMi04NDQ4OWZlYjc5MTk=
+      Accept:
+      - application/vnd.heroku+json; version=3
+      Content-Type:
+      - application/json
+  response:
+    status:
+      code: 201
+      message: ''
+    headers:
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 18 Feb 2015 00:47:39 GMT
+      Oauth-Scope:
+      - global
+      Oauth-Scope-Accepted:
+      - global write-protected
+      Ratelimit-Remaining:
+      - '2389'
+      Request-Id:
+      - 558550b6-623d-400a-b5b5-d4a045b019c8
+      Server:
+      - nginx/1.4.6 (Ubuntu)
+      Status:
+      - 201 Created
+      Vary:
+      - Accept-Encoding
+      X-Content-Type-Options:
+      - nosniff
+      X-Runtime:
+      - '0.051126256'
+      Content-Length:
+      - '201'
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"created_at":"2015-02-18T00:47:39Z","id":"b3ec2985-7709-4ecd-b32f-50a4ae63189b","updated_at":"2015-02-18T00:47:39Z","user":{"id":"4d4c33f2-86af-4382-8a0b-12f33618c2b0","email":"richa@dabohealth.com"}}'
+    http_version:
+  recorded_at: Wed, 18 Feb 2015 00:47:39 GMT
+- request:
+    method: post
+    uri: https://daboeng:fake-github-personal-token@api.github.com/repos/dabohealth/iris/issues/111/comments
+    body:
+      encoding: UTF-8
+      string: '{"body":"Test URL: https://iris-acceptance-pr-111.herokuapp.com"}'
     headers:
       Accept:
       - application/vnd.github.v3+json
@@ -197,29 +407,29 @@ http_interactions:
       Server:
       - GitHub.com
       Date:
-      - Mon, 09 Feb 2015 21:32:28 GMT
+      - Wed, 18 Feb 2015 00:47:40 GMT
       Content-Type:
       - application/json; charset=utf-8
       Content-Length:
-      - '1243'
+      - '1246'
       Status:
       - 201 Created
       X-Ratelimit-Limit:
       - '5000'
       X-Ratelimit-Remaining:
-      - '4997'
+      - '4983'
       X-Ratelimit-Reset:
-      - '1423520182'
+      - '1424220942'
       Cache-Control:
       - private, max-age=60, s-maxage=60
       Etag:
-      - '"85abaa1d5a19e44394e4900f4b8bdf65"'
+      - '"4bb6830de3b0dcce5a63de1e12c0bbda"'
       X-Oauth-Scopes:
       - gist, repo, user
       X-Accepted-Oauth-Scopes:
       - ''
       Location:
-      - https://api.github.com/repos/dabohealth/iris/issues/comments/73594589
+      - https://api.github.com/repos/dabohealth/iris/issues/comments/74788682
       Vary:
       - Accept, Authorization, Cookie, X-GitHub-OTP
       - Accept-Encoding
@@ -239,17 +449,17 @@ http_interactions:
       Access-Control-Allow-Origin:
       - "*"
       X-Github-Request-Id:
-      - D826973E:2029:14BB6990:54D9276C
+      - D826973E:202D:1BDD7C40:54E3E12B
       Strict-Transport-Security:
       - max-age=31536000; includeSubdomains; preload
       X-Content-Type-Options:
       - nosniff
       X-Served-By:
-      - a30e6f9aa7cf5731b87dfb3b9992202d
+      - dc1ce2bfb41810a06c705e83b388572d
     body:
       encoding: UTF-8
-      string: '{"url":"https://api.github.com/repos/dabohealth/iris/issues/comments/73594589","html_url":"https://github.com/dabohealth/iris/pull/92#issuecomment-73594589","issue_url":"https://api.github.com/repos/dabohealth/iris/issues/92","id":73594589,"user":{"login":"daboeng","id":6217062,"avatar_url":"https://avatars.githubusercontent.com/u/6217062?v=3","gravatar_id":"","url":"https://api.github.com/users/daboeng","html_url":"https://github.com/daboeng","followers_url":"https://api.github.com/users/daboeng/followers","following_url":"https://api.github.com/users/daboeng/following{/other_user}","gists_url":"https://api.github.com/users/daboeng/gists{/gist_id}","starred_url":"https://api.github.com/users/daboeng/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/daboeng/subscriptions","organizations_url":"https://api.github.com/users/daboeng/orgs","repos_url":"https://api.github.com/users/daboeng/repos","events_url":"https://api.github.com/users/daboeng/events{/privacy}","received_events_url":"https://api.github.com/users/daboeng/received_events","type":"User","site_admin":false},"created_at":"2015-02-09T21:32:28Z","updated_at":"2015-02-09T21:32:28Z","body":"Test
-        URL: https://iris-acceptance-pr-92.herokuapp.com"}'
+      string: '{"url":"https://api.github.com/repos/dabohealth/iris/issues/comments/74788682","html_url":"https://github.com/dabohealth/iris/pull/111#issuecomment-74788682","issue_url":"https://api.github.com/repos/dabohealth/iris/issues/111","id":74788682,"user":{"login":"daboeng","id":6217062,"avatar_url":"https://avatars.githubusercontent.com/u/6217062?v=3","gravatar_id":"","url":"https://api.github.com/users/daboeng","html_url":"https://github.com/daboeng","followers_url":"https://api.github.com/users/daboeng/followers","following_url":"https://api.github.com/users/daboeng/following{/other_user}","gists_url":"https://api.github.com/users/daboeng/gists{/gist_id}","starred_url":"https://api.github.com/users/daboeng/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/daboeng/subscriptions","organizations_url":"https://api.github.com/users/daboeng/orgs","repos_url":"https://api.github.com/users/daboeng/repos","events_url":"https://api.github.com/users/daboeng/events{/privacy}","received_events_url":"https://api.github.com/users/daboeng/received_events","type":"User","site_admin":false},"created_at":"2015-02-18T00:47:39Z","updated_at":"2015-02-18T00:47:39Z","body":"Test
+        URL: https://iris-acceptance-pr-111.herokuapp.com"}'
     http_version:
-  recorded_at: Mon, 09 Feb 2015 21:32:28 GMT
+  recorded_at: Wed, 18 Feb 2015 00:47:40 GMT
 recorded_with: VCR 2.9.3

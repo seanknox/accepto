@@ -11,7 +11,7 @@ post '/hooks' do
   begin
     params = JSON.parse(request.env.fetch('rack.input').read)
     RespondToPullRequestEvent.call(params)
-    'Got it, thanks!'
+    'Successfully responded to Pull Request!'
   rescue
     puts "Exception ! ! ! #{$!.message}" # Sinatra swallows errors
     raise
