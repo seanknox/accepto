@@ -389,7 +389,7 @@ http_interactions:
     uri: https://daboeng:fake-github-personal-token@api.github.com/repos/dabohealth/iris/issues/111/comments
     body:
       encoding: UTF-8
-      string: '{"body":"Test URL: https://iris-acceptance-pr-111.herokuapp.com"}'
+      string: '{"body":"Test URL: https://iris-acceptance-pr-111.herokuapp.com \nApp setup status: http://example.herokuapp.com/status/251dbc86-f117-4814-8916-0f560b1eada6"}'
     headers:
       Accept:
       - application/vnd.github.v3+json

@@ -10,6 +10,7 @@ RSpec.shared_examples 'a pull request action' do
     end
     let(:env) do
       {
+        'APP_URL' => 'http://example.herokuapp.com',
         'HEROKU_API_KEY' => 'fake-heroku-api-key',
         'GITHUB_USERNAME' => 'daboeng',
         'GITHUB_PERSONAL_TOKEN' => 'fake-github-token',

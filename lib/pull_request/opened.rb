@@ -11,7 +11,7 @@ module PullRequest
         heroku_status: heroku_app.fetch('status'),
         collaborator_emails: add_collaborators,
         github_comment_url: add_github_comment.to_h.fetch(:html_url),
-        app_setup_id: heroku_app.fetch('id'),
+        app_setup_id: app_setup_id,
       }
     end
 
@@ -33,6 +33,10 @@ module PullRequest
         comment: comment,
         pr_number: pr_number,
       )
+    end
+
+    def app_setup_id
+      heroku_app.fetch('id')
     end
 
     def app_schema_data
@@ -64,11 +68,16 @@ module PullRequest
     end
 
     def comment
-      "Test URL: https://#{app_name}.herokuapp.com"
+      "Test URL: https://#{app_name}.herokuapp.com \n" \
+      "App setup status: #{status_url}"
     end
 
     def pr_number
       options.fetch(:pr_number)
+    end
+
+    def status_url
+      "#{ENV.fetch('APP_URL')}/status/#{app_setup_id}"
     end
   end
 end
