@@ -18,6 +18,7 @@ describe 'Github web hooks receiver', :vcr do
 
   it 'receives hook and inititates a pull request task accordingly' do
     stub_const('ENV',
+      'APP_URL' => 'http://example.herokuapp.com',
       'GITHUB_PERSONAL_TOKEN' => 'fake-github-personal-token',
       'GITHUB_PROJECT' => 'dabohealth/iris',
       'GITHUB_USERNAME' => 'daboeng',

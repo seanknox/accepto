@@ -4,6 +4,7 @@ RSpec.describe PullRequest::Opened, :vcr do
       heroku_status: 'pending',
       collaborator_emails: collaborator_emails,
       github_comment_url: 'https://github.com/some-fancy-comment',
+      app_setup_id: '3792b923-2716-424a-9be0-02d32d6786fd',
     }
   end
 

@@ -22,6 +22,10 @@ class HerokuClient
     collaborator.list(source_app)
   end
 
+  def app_setup_status(app_setup_id)
+    app_setup.info(app_setup_id)
+  end
+
   private
 
   def app_setup

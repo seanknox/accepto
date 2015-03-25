@@ -17,3 +17,9 @@ post '/hooks' do
     raise
   end
 end
+
+get '/status/:app_setup_id' do
+  heroku_client = HerokuClient.new
+  content_type :json
+  heroku_client.app_setup_status(params[:app_setup_id]).to_json
+end
