@@ -8,16 +8,17 @@ module PullRequest
 
     def call
       {
-        heroku_status: create_heroku_app.fetch('status'),
+        heroku_status: heroku_app.fetch('status'),
         collaborator_emails: add_collaborators,
         github_comment_url: add_github_comment.to_h.fetch(:html_url),
+        app_setup_id: heroku_app.fetch('id'),
       }
     end
 
     private
 
-    def create_heroku_app
-      heroku_client.create_app(app_schema_data)
+    def heroku_app
+      @heroku_app ||= heroku_client.create_app(app_schema_data)
     end
 
     def add_collaborators

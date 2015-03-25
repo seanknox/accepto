@@ -19,6 +19,7 @@ describe HerokuClient do
   end
   let(:source_app_name) { 'test-source-app' }
   let(:env) { { 'SOURCE_APP_FOR_CONFIG_VARS' => source_app_name } }
+  let(:app_setup_id) { 'foo123' }
 
   before do
     stub_const('ENV', env)
@@ -40,5 +41,11 @@ describe HerokuClient do
     allow(subject).to receive(:config_var).and_return(config_var)
     expect(config_var).to receive(:info).with(source_app_name)
     subject.source_app_config_vars
+  end
+
+  specify '#app_setup_status' do
+    allow(subject).to receive(:app_setup).and_return(app_setup)
+    expect(app_setup).to receive(:info).with(app_setup_id)
+    subject.app_setup_status(app_setup_id)
   end
 end
